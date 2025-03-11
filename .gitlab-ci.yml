@@ -1,0 +1,10 @@
+image: alpine:latest  # 使用轻量级镜像，无需复杂环境
+
+pages:
+  script:
+    - echo 'No build needed!'  # 无需构建脚本，直接复制文件
+  artifacts:
+    paths:
+      - public  # GitLab Pages 默认从 public 目录发布网站
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH  # 仅对默认分支（如 main/master）触发部署
